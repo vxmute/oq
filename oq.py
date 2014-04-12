@@ -12,8 +12,11 @@ import requests
 import gzip
 import sys
 
-# we define the valid methods in a JSON file.
-methods = json.load(file("json/methods.json"))
+# some protocol definitions
+methods = ["summary","details","bandwidth","weights","clients","uptime"]
+reqparm = ["type","running","search","lookup","country","as","flag",
+           "first_seen_days","last_seen_days","contact","fields","order",
+           "offset","limit"]
 summary = json.load(file("json/summary.json"))
 
 # Query the database.
@@ -24,7 +27,7 @@ def onionoo_get(options):
 	if options.has_key("method") == False:
 		return (-1,"","")
 	u += options["method"]+"?"
-	p = methods["parameters"]
+	p = reqparm
 	for i in range(0,len(p)):
 		if options.has_key(p[i]) == True:
 			u += p[i]+"="+options[p[i]]+"&"
@@ -44,25 +47,41 @@ def onionoo_parse(options,res):
 	if options["method"] == "summary":
 		onionoo_summary(res)
 
+# holy shit
+# the linux kernel wouldn't accept this.
 def onionoo_summary(res):
 	d = json.loads(res)
-	for i in range(0,len(summary.keys())):
-		for j in range(0,len(d[summary.keys()[i]])):
-			v = summary[summary.keys()[i]].keys()
-			for l in range(0,len(v)):
-				print summary[summary.keys()[i]][v[l]]+":"
-				print d[summary.keys()[i]][j][v[l]] #sorry
+	for i in range(0,len(summary)):
+		sk = summary.keys()
+		for j in range(0,len(d[sk[i]])):
+			for l in range(0,len(summary[sk[i]])):
+				text = summary[sk[i]][l]["name"]
+				dtype = summary[sk[i]][l]["type"]
+				citem = d[sk[i]][j][summary[sk[i]][l]["field_n"]]
+				if dtype == "string":
+					print text+" : "+citem
+				if dtype == "array":
+					ct = ""
+					for t in range(0,len(citem)):
+						ct += citem[t]+" "
+					print text+": "+ct
+				if dtype == "bool":
+					print text+": "+str(citem)
 			print ""
-	
 
 if(len(sys.argv) == 1):
 	print "You need a search query"
 	exit(1)
 
+# argument parsing.
+argop = ["-t","-r","-s","-l","-c",
+	"-as","-flag","-firstseen","-lastseen",
+	"-contact","-fields","-order","-offset","-limit"]
+
+
 opt = {
 		"method":"summary",
-		"search":sys.argv[1],
-		"type":"bridge"
+		"search":sys.argv[1]
 		}
 
 q = onionoo_get(opt)

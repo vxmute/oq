@@ -1,13 +1,13 @@
 {
-	"bridges":{
-		"n": "Nickname",
-		"h": "Hash",
-		"r": "Running"
-	},
-	"relays":{
-		"n": "Nickname",
-		"a": "Addresses",
-		"f": "Fingerprint",
-		"r": "Running"
-	}
+	"bridges":[
+		{"field_n":"n","name":"Nickname","type":"string"},
+		{"field_n":"h","name":"Hash","type":"string"},
+		{"field_n":"r","name":"Running","type":"bool"}
+	],
+	"relays":[
+		{"field_n":"n","name":"Nickname","type":"string"},
+		{"field_n":"a","name":"Address","type":"array"},
+		{"field_n":"f","name":"Fingerprint","type":"string"},
+		{"field_n":"r","name":"Running","type":"bool"}
+	]
 }
