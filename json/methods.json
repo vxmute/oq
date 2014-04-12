@@ -1,0 +1,26 @@
+{
+    "methods": [
+        "summary",
+        "details",
+        "bandwidth",
+        "weights",
+        "clients",
+        "uptime"
+    ],
+    "parameters": [
+        "type",
+        "running",
+        "search",
+        "lookup",
+        "country",
+        "as",
+        "flag",
+        "first_seen_days",
+        "last_seen_days",
+        "contact",
+        "fields",
+        "order",
+        "offset",
+        "limit"
+    ]
+}

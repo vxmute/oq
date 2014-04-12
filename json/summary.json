@@ -1,0 +1,13 @@
+{
+	"bridges":{
+		"n": "Nickname",
+		"h": "Hash",
+		"r": "Running"
+	},
+	"relays":{
+		"n": "Nickname",
+		"a": "Addresses",
+		"f": "Fingerprint",
+		"r": "Running"
+	}
+}
