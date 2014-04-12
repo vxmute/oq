@@ -1,4 +1,4 @@
 oq
 ==
 
-onionoo.torproject.org
+Client for onionoo.torproject.org
