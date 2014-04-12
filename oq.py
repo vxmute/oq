@@ -65,7 +65,7 @@ def onionoo_parse(res,method):
 					citem = u[md[mk[i]][l]["field_n"]]
 					if dtype == "string":
 						print text+" : "+citem
-					if dtype == "array":
+					if dtype == "array_str":
 						ct = ""
 						for t in range(0,len(citem)):
 							ct += citem[t]+" "

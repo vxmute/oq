@@ -6,7 +6,7 @@
 	],
 	"relays":[
 		{"field_n":"n","name":"Nickname","type":"string"},
-		{"field_n":"a","name":"Address","type":"array"},
+		{"field_n":"a","name":"Address","type":"array_str"},
 		{"field_n":"f","name":"Fingerprint","type":"string"},
 		{"field_n":"r","name":"Running","type":"bool"}
 	]
