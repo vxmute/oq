@@ -40,11 +40,14 @@ def onionoo_get(options):
 	r = requests.get(u,headers=headers)
 	if r.status_code != 200:
 		return (-1,r)
-	return (0,r)
+	return (0,r)	
 
-# Write me
-def history(obj):
-	print "yay"
+# deal with the history objects
+# graph them
+def onionoo_history(obj):
+	k = obj.keys()
+	for i in range(0,len(k)):
+		print obj[k[i]]
 
 # holy shit
 # the linux kernel wouldn't accept this.
@@ -63,6 +66,7 @@ def onionoo_parse(res,method):
 					text = md[mk[i]][l]["name"]
 					dtype = md[mk[i]][l]["type"]
 					citem = u[md[mk[i]][l]["field_n"]]
+					# python needs switch/case statements.
 					if dtype == "string":
 						print text+" : "+citem
 					if dtype == "array_str":
@@ -74,6 +78,8 @@ def onionoo_parse(res,method):
 						print text+": "+str(citem)
 					if dtype == "number":
 						print text+": "+str(citem)
+					if dtype == "history_object":
+						onionoo_history(citem)
 			print ""
 
 if(len(sys.argv) == 1):
@@ -87,7 +93,7 @@ argop = ["-t","-r","-s","-l","-c",
 
 
 opt = {
-		"method":"details",
+		"method":"uptime",
 		"search":sys.argv[1],
 		}
 

@@ -1,0 +1,12 @@
+{
+	"bridges":[
+		{"field_n":"fingerprint","name":"Fingerprint","type":"string"},
+		{"field_n":"write_history","name":"Write History","type":"history_object"},
+		{"field_n":"read_history","name":"Read History","type":"history_object"}
+	],
+	"relays":[
+		{"field_n":"fingerprint","name":"Fingerprint","type":"string"},
+		{"field_n":"write_history","name":"Write History","type":"history_object"},
+		{"field_n":"read_history","name":"Read History","type":"history_object"}
+	]
+}

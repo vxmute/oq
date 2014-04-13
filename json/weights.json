@@ -1,0 +1,14 @@
+{
+	"bridges":[
+	],
+	"relays":[
+		{"field_n":"f","name":"Fingerprint","type":"string"},
+		{"field_n":"advertised_bandwidth_fraction","name":"Advertised Bandwidth Fraction",
+		"type":"history_object"},
+		{"field_n":"consensus_weight_fraction","name":"Consensus Weight Fraction",
+		"type":"history_object"},
+		{"field_n":"guard_probability","name":"Guard Probability","type":"history_object"},
+		{"field_n":"middle_probability","name":"Middle Probability","type":"history_object"},
+		{"field_n":"exit_probability","name":"Exit Probability","type":"history_object"}
+	]
+}

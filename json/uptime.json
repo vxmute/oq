@@ -1,0 +1,10 @@
+{
+	"bridges":[
+		{"field_n":"fingerprint","name":"Fingerprint","type":"string"},
+		{"field_n":"uptime","name":"Uptime","type":"history_object"}
+	],
+	"relays":[
+		{"field_n":"fingerprint","name":"Fingerprint","type":"string"},
+		{"field_n":"uptime","name":"Uptime","type":"history_object"}
+	]
+}
